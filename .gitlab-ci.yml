@@ -1,0 +1,18 @@
+image: node:12
+
+stages:
+  - build
+  - test
+
+variables:
+  CLICOLOR: "1"
+
+yarn_install:
+  stage: build
+  script:
+    - yarn install --offline --frozen-lockfile --link-duplicates
+
+yarn_test:
+  stage: test
+  script:
+    - yarn test
